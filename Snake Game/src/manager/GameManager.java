@@ -194,17 +194,18 @@ public class GameManager {
 			handler.getCollisionCheck().powerUpCheck();
 			
 			
-			handler.getCollisionCheck().checkEnd();
+			handler.getCollisionCheck().checkWall();
+			handler.getCollisionCheck().checkSnakeCollide();
 			
-			if(handler.isEnd())
+			if(handler.isEnd()){
+				System.out.println("1:" + handler.isSnakeOneLose() + "\t2:" + handler.isSnakeTwoLose());
 				break;
+			}
+			
+			handler.getGui().repaintGame();
 			
 			moveSnake();
 
-			
-			//draws the snakes
-			handler.getGui().repaintGame();
-			
 			//makes sure it isn't infinite grow
 			checkGrow();	
 			
