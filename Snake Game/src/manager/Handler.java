@@ -46,10 +46,20 @@ public class Handler {
 	private static int edgeBorder = 25;
 	private static int boardWidth = 700;
 	private static int boardHeight = 700;
+	/*
+	 * 
+	 * RESERVED FOR GUI STUFF
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	
 	
-	
-	
+	private boolean snakeOneLose = false;
+	private boolean snakeTwoLose = false;
 	
 	
 	private int vertBoxes = DEFAULT_HEIGHT/DEFAULT_BOX_SIZE;
@@ -351,6 +361,22 @@ public class Handler {
 
 	public static void setBoardHeight(int boardHeight) {
 		Handler.boardHeight = boardHeight;
+	}
+
+	public boolean isSnakeOneLose() {
+		return snakeOneLose;
+	}
+
+	public void setSnakeOneLose(boolean snakeOneLose) {
+		this.snakeOneLose = snakeOneLose;
+	}
+
+	public boolean isSnakeTwoLose() {
+		return snakeTwoLose;
+	}
+
+	public void setSnakeTwoLose(boolean snakeTwoLose) {
+		this.snakeTwoLose = snakeTwoLose;
 	}
 
 }

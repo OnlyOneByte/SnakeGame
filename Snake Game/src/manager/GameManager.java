@@ -360,6 +360,11 @@ public class GameManager {
 		
 		handler.setSnake1(new ArrayList <SnakeBody>());
 		handler.setSnake2(new ArrayList <SnakeBody>());
+		
+		handler.setSnakeOneLose(false);
+		handler.setSnakeTwoLose(false);
+		
+		
 
 		//now everything should be reset on the logic side except some other things
 		//however, those things are reset automatically by invoking other methods
