@@ -26,7 +26,7 @@ public class CollisionManager {
 			handler.setEnd(true);
 		}
 		// checks to see if its gonna hit bottem. Scaleable
-		if ((handler.getHead1().getY() == (handler.getBoard().getHeight() / handler.getBoard().getBoxSize()) - 1)
+		if ((handler.getHead1().getY() == (handler.getBoardHeight() / handler.getBoxSize()) - 1)
 				&& (handler.getHead1().getDir().equals("s"))) {
 			handler.setEnd(true);
 		}
@@ -35,7 +35,7 @@ public class CollisionManager {
 			handler.setEnd(true);
 		}
 		// checks to see if its gonna hit the right/easst side
-		if ((handler.getHead1().getX() == (handler.getBoard().getWidth() / handler.getBoard().getBoxSize()) - 1)
+		if ((handler.getHead1().getX() == (handler.getBoardWidth() / handler.getBoxSize()) - 1)
 				&& (handler.getHead1().getDir().equals("e"))) {
 			handler.setEnd(true);
 		}
@@ -48,7 +48,7 @@ public class CollisionManager {
 				handler.setEnd(true);
 			}
 			// checks to see if its gonna hit bottem. Scaleable
-			if ((handler.getHead2().getY() == (handler.getBoard().getHeight() / handler.getBoard().getBoxSize()) - 1)
+			if ((handler.getHead2().getY() == (handler.getBoardHeight() / handler.getBoxSize()) - 1)
 					&& (handler.getHead2().getDir().equals("s"))) {
 				handler.setEnd(true);
 			}
@@ -57,7 +57,7 @@ public class CollisionManager {
 				handler.setEnd(true);
 			}
 			// checks to see if its gonna hit the right/easst side
-			if ((handler.getHead2().getX() == (handler.getBoard().getWidth() / handler.getBoard().getBoxSize()) - 1)
+			if ((handler.getHead2().getX() == (handler.getBoardWidth() / handler.getBoxSize()) - 1)
 					&& (handler.getHead2().getDir().equals("e"))) {
 				handler.setEnd(true);
 			}

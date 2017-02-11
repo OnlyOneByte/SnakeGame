@@ -12,7 +12,6 @@ public class GUI extends JFrame{
 	private MenuBar menu;
 	private ScorePanel score;
 	
-	@SuppressWarnings("unused")
 	private Handler handler;
 	private int width;
 	private int height;
@@ -21,12 +20,12 @@ public class GUI extends JFrame{
 	public GUI(Handler handler){
 		this.handler = handler;
 		
-		this.board = handler.getBoard();
-		this.menu = handler.getMenu();
+		this.board = new BoardGUI(this.handler);
+		this.menu = new MenuBar(this.handler);
 		this.score = handler.getScorePanel();
 		
-		setWidth(handler.getBoard().getWidth() + handler.getBoard().getEdgeBorder()*2 + 10);
-		setHeight(handler.getBoard().getHeight() + MenuBar.HEIGHT + handler.getBoard().getEdgeBorder()*2 + 15);
+		setWidth(handler.getBoardWidth() + handler.getEdgeBorderSize()*2 + 10);
+		setHeight(handler.getBoardHeight() + MenuBar.HEIGHT + handler.getEdgeBorderSize()*2 + 15);
 		
 		
 		keys = new KeyboardManager(handler);
@@ -54,6 +53,10 @@ public class GUI extends JFrame{
 		this.setSize(width, height);
 		this.setResizable(false);
 		this.setVisible(true);
+	}
+	
+	public void repaintGame(){
+		board.repaint();
 	}
 
 	public int getWidth() {

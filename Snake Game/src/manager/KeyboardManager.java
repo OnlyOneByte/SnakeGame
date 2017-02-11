@@ -60,7 +60,7 @@ public class KeyboardManager implements KeyListener {
 			break;
 
 		case KeyEvent.VK_DOWN:
-			if(handler.getHead1().getY() == (handler.getBoard().getHeight()/handler.getBoard().getBoxSize()) - 1){
+			if(handler.getHead1().getY() == (handler.getBoardHeight()/handler.getBoxSize()) - 1){
 				handler.getHead1().setDir("s");
 				break;
 			}
@@ -72,7 +72,7 @@ public class KeyboardManager implements KeyListener {
 			break;
 
 		case KeyEvent.VK_RIGHT:
-			if(handler.getHead1().getX() == (handler.getBoard().getHeight()/handler.getBoard().getBoxSize()) - 1){
+			if(handler.getHead1().getX() == (handler.getBoardHeight()/handler.getBoxSize()) - 1){
 				handler.getHead1().setDir("e");
 				break;
 			}
@@ -119,7 +119,7 @@ public class KeyboardManager implements KeyListener {
 			if(handler.getGameMode() == 2)
 				break;
 			
-			if(handler.getHead2().getY() == (handler.getBoard().getHeight()/handler.getBoard().getBoxSize()) - 1){
+			if(handler.getHead2().getY() == (handler.getBoardHeight()/handler.getBoxSize()) - 1){
 				handler.getHead2().setDir("s");
 				break;
 			} else if (!((handler.getSnake2().get(0).getX() == handler.getHead2().getX())
@@ -133,7 +133,7 @@ public class KeyboardManager implements KeyListener {
 			if(handler.getGameMode() == 2)
 				break;
 			
-			if(handler.getHead2().getX() == (handler.getBoard().getHeight()/handler.getBoard().getBoxSize()) - 1){
+			if(handler.getHead2().getX() == (handler.getBoardHeight()/handler.getBoxSize()) - 1){
 				handler.getHead2().setDir("e");
 				break;
 			}

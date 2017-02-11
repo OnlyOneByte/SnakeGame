@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import snake.SnakeBody;
 import snake.SnakeHead;
-import ui.BoardGUI;
 import ui.GUI;
-import ui.MenuBar;
 import ui.ScorePanel;
 import powerup.*;
 
@@ -38,11 +36,24 @@ public class Handler {
 
 	private static int growMin = 1;
 	private static int growMax = 4;
-
-	@SuppressWarnings("static-access")
-	private int vertBoxes = this.getBoard().DEFAULT_HEIGHT/this.getBoard().DEFAULT_BOX_SIZE;
-	@SuppressWarnings("static-access")
-	private int horiBoxes = this.getBoard().DEFAULT_WIDTH/this.getBoard().DEFAULT_BOX_SIZE;
+	
+	//stuff, for the board GUI
+	public static final int DEFAULT_WIDTH = 700;
+	public static final int DEFAULT_HEIGHT = 700;
+	public static final int DEFAULT_BOX_SIZE = 25;
+	
+	private static int boxSize = 25;
+	private static int edgeBorder = 25;
+	private static int boardWidth = 700;
+	private static int boardHeight = 700;
+	
+	
+	
+	
+	
+	
+	private int vertBoxes = DEFAULT_HEIGHT/DEFAULT_BOX_SIZE;
+	private int horiBoxes = DEFAULT_WIDTH/DEFAULT_BOX_SIZE;
 
 	// growing and length variables for snake1
 	private boolean isGrowing1 = false; // grows the snake1 if true
@@ -65,13 +76,11 @@ public class Handler {
 	
 	private ArrayList<PowerUp> powerUps = new ArrayList<PowerUp>();
 	
-	private BoardGUI board; //the board
-	private GUI gui;		//the gui
-	private MenuBar menu;	//the menu
-	
 	private ScorePanel scorePanel;	//has to be initiated after delay timer, or error
 	
 	private CollisionManager collisionCheck;
+	
+	private GUI gui; //the board
 
 	public Handler() {
 
@@ -288,22 +297,6 @@ public class Handler {
 		this.gui = gui;
 	}
 
-	public BoardGUI getBoard() {
-		return board;
-	}
-
-	public void setBoard(BoardGUI board) {
-		this.board = board;
-	}
-
-	public MenuBar getMenu() {
-		return menu;
-	}
-
-	public void setMenu(MenuBar menu) {
-		this.menu = menu;
-	}
-
 	public ScorePanel getScorePanel() {
 		return scorePanel;
 	}
@@ -326,6 +319,38 @@ public class Handler {
 
 	public void setPowerUps(ArrayList<PowerUp> powerUps) {
 		this.powerUps = powerUps;
+	}
+
+	public int getEdgeBorderSize() {
+		return edgeBorder;
+	}
+
+	public void setEdgeBorderSize(int edgeBorder) {
+		Handler.edgeBorder = edgeBorder;
+	}
+
+	public int getBoxSize() {
+		return boxSize;
+	}
+
+	public void setBoxSize(int boxSize) {
+		Handler.boxSize = boxSize;
+	}
+
+	public int getBoardWidth() {
+		return boardWidth;
+	}
+
+	public static void setBoardWidth(int boardWidth) {
+		Handler.boardWidth = boardWidth;
+	}
+
+	public int getBoardHeight() {
+		return boardHeight;
+	}
+
+	public static void setBoardHeight(int boardHeight) {
+		Handler.boardHeight = boardHeight;
 	}
 
 }

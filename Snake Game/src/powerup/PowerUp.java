@@ -21,8 +21,8 @@ public abstract class PowerUp {
 		while(!uniqueLocation){
 			uniqueLocation = true; //sets it to true, and if an intersection is found, it will be false.
 			
-			x = ((int) (Math.random() * (handler.getBoard().getHeight()/handler.getBoard().getBoxSize())));
-			y = ((int) (Math.random() * (handler.getBoard().getHeight()/handler.getBoard().getBoxSize())));
+			x = ((int) (Math.random() * (handler.getBoardWidth()/handler.getBoxSize())));
+			y = ((int) (Math.random() * (handler.getBoardHeight()/handler.getBoxSize())));
 			
 			//checks for intersection with snake 1's body
 			for(int a = 0; a < handler.getSnake1().size(); a++)

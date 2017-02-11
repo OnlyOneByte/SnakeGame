@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import powerup.*;
 import snake.SnakeBody;
 import snake.SnakeHead;
-import ui.BoardGUI;
 import ui.GUI;
-import ui.MenuBar;
 import ui.ScorePanel;
 
 public class GameManager {
@@ -16,8 +14,6 @@ public class GameManager {
 	
 	public GameManager(Handler handler){
 		this.handler = handler;
-		this.handler.setBoard(new BoardGUI(this.handler));
-		this.handler.setMenu(new MenuBar(this.handler));
 		this.handler.setScorePanel(new ScorePanel(this.handler));
 
 		
@@ -56,8 +52,8 @@ public class GameManager {
 		if(handler.getGameMode() == 1){
 			handler.setHead1(new SnakeHead(1,0, "e"));
 			handler.getSnake1().add(new SnakeBody(0,0));
-			handler.setHead2(new SnakeHead((handler.getBoard().getWidth()/handler.getBoard().getBoxSize()) - 2, (handler.getBoard().getHeight()/handler.getBoard().getBoxSize()) - 1, "w"));
-			handler.getSnake2().add(new SnakeBody((handler.getBoard().getWidth()/handler.getBoard().getBoxSize()) - 1, (handler.getBoard().getHeight()/handler.getBoard().getBoxSize()) - 1));
+			handler.setHead2(new SnakeHead((handler.getBoardWidth()/handler.getBoxSize()) - 2, (handler.getBoardHeight()/handler.getBoxSize()) - 1, "w"));
+			handler.getSnake2().add(new SnakeBody((handler.getBoardWidth()/handler.getBoxSize()) - 1, (handler.getBoardHeight()/handler.getBoxSize()) - 1));
 		}
 		
 		
@@ -169,14 +165,16 @@ public class GameManager {
 	public void gameRun(){
 		//spawns the food
 //		handler.getFood().spawnFood();
-		if(handler.getGameMode() != 1){
-			handler.getBoard().drawPowerUps();
-		}
+//		if(handler.getGameMode() != 1){
+//			handler.getBoard().drawPowerUps();
+//		}
+//		
+//		//draws the snakes
+//		handler.getBoard().drawSnake1();
+//		if(!(handler.getGameMode() == 2))
+//			handler.getBoard().drawSnake2();
 		
-		//draws the snakes
-		handler.getBoard().drawSnake1();
-		if(!(handler.getGameMode() == 2))
-			handler.getBoard().drawSnake2();
+		handler.getGui().repaintGame();
 		
 		//pauses the game while it waits to start
 		while(!handler.isStart()){
@@ -195,12 +193,6 @@ public class GameManager {
 			//checks for powerups taken
 			handler.getCollisionCheck().powerUpCheck();
 			
-			//makes sure it isn't infinite grow
-			checkGrow();	
-			
-			checkReset();
-			
-			checkPause();
 			
 			handler.getCollisionCheck().checkEnd();
 			
@@ -208,20 +200,21 @@ public class GameManager {
 				break;
 			
 			moveSnake();
-			
-			
-			if(handler.getGameMode() != 1){
-				handler.getBoard().drawPowerUps();
-			}
+
 			
 			//draws the snakes
-			handler.getBoard().drawSnake1();
-			if(!(handler.getGameMode() == 2))
-				handler.getBoard().drawSnake2();
+			handler.getGui().repaintGame();
+			
+			//makes sure it isn't infinite grow
+			checkGrow();	
+			
+			checkReset();
+			
+			checkPause();
 			
 			handler.getGui().repaint();
 			handler.getScorePanel().redoScore();
-			handler.getMenu().repaint();
+			handler.getGui().repaintGame();
 
 			try {
 				Thread.sleep(handler.getDelayTimer());
@@ -272,18 +265,14 @@ public class GameManager {
 		//removes the end piece
 		//only removes if gamemode is not the infinite grow
 		if(!(handler.getGameMode() == 1)){
-			if(!handler.isGrowing1()){
-				//removes from the board
-				handler.getBoard().removeSnakePart(handler.getSnake1().get(handler.getSnake1().size()-1));			
+			if(!handler.isGrowing1()){	
 				//removes from the arraylists
 				handler.getSnake1().remove(handler.getSnake1().size()-1);
 			}
 			
 			//if its the two player game
 			if(handler.getGameMode() == 0){
-				if(!handler.isGrowing2()){
-					//removes from the board
-					handler.getBoard().removeSnakePart(handler.getSnake2().get(handler.getSnake2().size()-1));			
+				if(!handler.isGrowing2()){		
 					//removes from the arraylists
 					handler.getSnake2().remove(handler.getSnake2().size()-1);
 				}
@@ -375,7 +364,7 @@ public class GameManager {
 		//now everything should be reset on the logic side except some other things
 		//however, those things are reset automatically by invoking other methods
 		
-		handler.getBoard().reset();
+		handler.getGui().repaintGame();
 		
 		for(PowerUp element : handler.getPowerUps()){
 			element.spawn();
