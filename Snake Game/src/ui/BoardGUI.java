@@ -49,6 +49,7 @@ public class BoardGUI extends JPanel {
 						handler.getBoxSize(), handler.getBoxSize());
 
 		
+		
 		// snake head one first
 		g2.setColor(Color.DARK_GRAY);
 		g2.fillOval(handler.getHead1().getX() * handler.getBoxSize(), handler.getHead1().getY() * handler.getBoxSize(),

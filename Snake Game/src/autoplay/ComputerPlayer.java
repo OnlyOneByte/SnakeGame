@@ -1,5 +1,10 @@
 package autoplay;
 
-public class ComputerPlayer {
+import manager.Handler;
 
+public class ComputerPlayer {
+	
+	public ComputerPlayer(Handler handler){
+		
+	}
 }
