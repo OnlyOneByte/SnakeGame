@@ -1,6 +1,8 @@
 package manager;
 import java.util.ArrayList;
 
+import autoplay.ComputerEasy;
+import autoplay.ComputerPlayer;
 import powerup.*;
 import snake.SnakeBody;
 import snake.SnakeHead;
@@ -9,8 +11,7 @@ import ui.ScorePanel;
 
 public class GameManager {
 	Handler handler;
-	
-	
+	ComputerPlayer computer;
 	
 	public GameManager(Handler handler){
 		this.handler = handler;
@@ -28,7 +29,7 @@ public class GameManager {
 		this.handler.setGui(new GUI(this.handler));
 		
 		
-		
+		computer = new ComputerEasy(this.handler);
 		
 		gameRun();
 	}
@@ -205,6 +206,7 @@ public class GameManager {
 			handler.getGui().repaintGame();
 			
 			moveSnake();
+			computer.move();
 
 			//makes sure it isn't infinite grow
 			checkGrow();	

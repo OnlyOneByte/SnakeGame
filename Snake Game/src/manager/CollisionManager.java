@@ -59,7 +59,7 @@ public class CollisionManager {
 		// only checks second snake if it is two player
 		if (handler.getGameMode() != 2) {
 			
-			//checks snake 2 to snake two
+			//checks snake 2 to wall
 			currX2 = handler.getHead2().getX();
 			currY2 = handler.getHead2().getY();
 			
@@ -163,7 +163,7 @@ public class CollisionManager {
 			
 			
 			
-			//head 1 to boyd 2
+			//head 1 to snkae 2
 			for (int i = 0; i < handler.getSnake2().size(); i++) {
 				switch(handler.getHead1().getDir()){
 				//if it is north, check to see if there is something above.
