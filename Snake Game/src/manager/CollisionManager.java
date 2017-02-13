@@ -56,6 +56,8 @@ public class CollisionManager {
 
 		// now repeat for the other snake
 		// first checks if it is going to hit the top
+		
+		
 		// only checks second snake if it is two player
 		if (handler.getGameMode() != 2) {
 			
