@@ -4,6 +4,8 @@ import manager.Handler;
 
 public abstract class ComputerPlayer {
 	
+	protected int foodX, foodY;
+	
 	protected Handler handler;
 	
 	public ComputerPlayer(Handler handler){
@@ -13,7 +15,10 @@ public abstract class ComputerPlayer {
 	public abstract void move();
 	
 	
-
+	/**
+	 * This sees if the right of the snake is blocked
+	 * @return 	true, if either the wall or a part of the other snake is blocking
+	 */
 	protected boolean rightBlocked() {
 		boolean out = false;
 		// the head Y
