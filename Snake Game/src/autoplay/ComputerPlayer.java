@@ -5,6 +5,8 @@ import manager.Handler;
 public abstract class ComputerPlayer {
 	
 	protected int foodX, foodY;
+	protected int x, y;
+	protected String left, right, forward;
 	
 	protected Handler handler;
 	
@@ -241,6 +243,34 @@ public abstract class ComputerPlayer {
 				break;
 			case "e":
 				if (handler.getSnake1().get(i).getX() == currX2 + 1 && handler.getSnake1().get(i).getY() == currY2) {
+					out = true;
+				}
+				break;
+			default:
+				break;
+			}
+		}
+		// checks for snake2 parts.
+		for (int i = 0; i < handler.getSnake2().size(); i++) {
+			switch (handler.getHead2().getDir()) {
+			// if it is north, check to see if there is something above.
+			case "n":
+				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
+					out = true;
+				}
+				break;
+			case "s":
+				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
+					out = true;
+				}
+				break;
+			case "w":
+				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
+					out = true;
+				}
+				break;
+			case "e":
+				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
 					out = true;
 				}
 				break;

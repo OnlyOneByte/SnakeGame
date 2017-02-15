@@ -1,8 +1,7 @@
 package manager;
 import java.util.ArrayList;
 
-import autoplay.ComputerEasy;
-import autoplay.ComputerPlayer;
+import autoplay.*;
 import powerup.*;
 import snake.SnakeBody;
 import snake.SnakeHead;
@@ -29,7 +28,7 @@ public class GameManager {
 		this.handler.setGui(new GUI(this.handler));
 		
 		
-		computer = new ComputerEasy(this.handler);
+		computer = new ComputerMedium(this.handler);
 		
 		gameRun();
 	}

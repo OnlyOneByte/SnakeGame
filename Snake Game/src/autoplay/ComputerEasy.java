@@ -21,7 +21,8 @@ public class ComputerEasy extends ComputerPlayer {
 		// collision detection so that it moves.
 
 		// this is what is relative left right to the snake
-		String left = null, right = null;
+		left = null;
+		right = null;
 		// this switch determines left and right
 		switch (handler.getHead2().getDir()) {
 		case "n":
