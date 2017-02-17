@@ -98,8 +98,7 @@ public class CollisionManager {
 		currX2 = 0;
 		currY2 = 0;
 		
-		//snake one to snake one
-		//first interates through all of the snake bodies
+		//Head 1 to Snake 1
 		for (SnakeBody element : handler.getSnake1()) {
 			switch(handler.getHead1().getDir()){
 			//if it is north, check to see if there is something above.
@@ -131,65 +130,41 @@ public class CollisionManager {
 				break;
 			}
 		}
+		
+		
 
 		// only checks these if it is two player
 		if (handler.getGameMode() != 2) {
 			
-			//checks snake 2 to snake two
+			//Snake 2 coordinates
 			currX2 = handler.getHead2().getX();
-			currY2 = handler.getHead2().getY();
-			
-			if (currY2 == 0 && handler.getHead2().getDir().equals("n")){
-				handler.setEnd(true);
-				handler.setSnakeTwoLose(true);
-			}
+			currY2 = handler.getHead2().getY();	
 
-			// checks to see if its gonna hit bottem. Scaleable
-			if ((currY2) == (handler.getBoardHeight() / handler.getBoxSize() - 1) 
-					&& (handler.getHead2().getDir().equals("s"))) {
-				
-				handler.setEnd(true);
-				handler.setSnakeTwoLose(true);
-			}
-			// checks to see if its gonna hit the left/west side
-			if ((currX2 == 0) && (handler.getHead2().getDir().equals("w"))) {
-				handler.setEnd(true);
-				handler.setSnakeTwoLose(true);
-			}
-			// checks to see if its gonna hit the right/easst side
-			if ((currX2 == (handler.getBoardWidth() / handler.getBoxSize()) - 1)
-					&& (handler.getHead2().getDir().equals("e"))) {
-				handler.setEnd(true);
-				handler.setSnakeTwoLose(true);
-			}
-			
-			
-			
-			//head 1 to snkae 2
-			for (int i = 0; i < handler.getSnake2().size(); i++) {
+			//Head 1 to Snake 2 and Head 2 to Snake 2
+			for (SnakeBody element : handler.getSnake2()) {
+				//head 1
 				switch(handler.getHead1().getDir()){
 				//if it is north, check to see if there is something above.
 				case "n": 
-					//checks head1 to snake 2
-					if(handler.getSnake2().get(i).getX() == currX1 && handler.getSnake2().get(i).getY() == currY1 - 1){
+					if(element.getX() == currX1 && element.getY() == currY1 - 1){
 						handler.setEnd(true);
 						handler.setSnakeOneLose(true);
 					}
 					break;
 				case "s": 
-					if(handler.getSnake2().get(i).getX() == currX1 && handler.getSnake2().get(i).getY() == currY1 + 1){
+					if(element.getX() == currX1 && element.getY() == currY1 + 1){
 						handler.setEnd(true);
 						handler.setSnakeOneLose(true);
 					}
 					break;
 				case "w": 
-					if(handler.getSnake2().get(i).getX() == currX1 - 1 && handler.getSnake2().get(i).getY() == currY1){
+					if(element.getX() == currX1 - 1 && element.getY() == currY1){
 						handler.setEnd(true);
 						handler.setSnakeOneLose(true);
 					}
 					break;
 				case "e": 
-					if(handler.getSnake2().get(i).getX() == currX1 + 1 && handler.getSnake2().get(i).getY() == currY1){
+					if(element.getX() == currX1 + 1 && element.getY() == currY1){
 						handler.setEnd(true);
 						handler.setSnakeOneLose(true);
 					}
@@ -197,34 +172,32 @@ public class CollisionManager {
 				default:
 					break;
 				}
-			}		
-			//snakke head 2 to snake 1
-			//first interates through all of the snake bodies
-			for (int i = 0; i < handler.getSnake1().size(); i++) {
+				
+				//Head 2
 				switch(handler.getHead2().getDir()){
 				//if it is north, check to see if there is something above.
 				case "n": 
-					if(handler.getSnake1().get(i).getX() == currX2 && handler.getSnake1().get(i).getY() == currY2 - 1){
+					if(element.getX() == currX2 && element.getY() == currY2 - 1){
 						handler.setEnd(true);
-						handler.setSnakeOneLose(true);
+						handler.setSnakeTwoLose(true);
 					}
 					break;
 				case "s": 
-					if(handler.getSnake1().get(i).getX() == currX2 && handler.getSnake1().get(i).getY() == currY2 + 1){
+					if(element.getX() == currX2 && element.getY() == currY2 + 1){
 						handler.setEnd(true);
-						handler.setSnakeOneLose(true);
+						handler.setSnakeTwoLose(true);
 					}
 					break;
 				case "w": 
-					if(handler.getSnake1().get(i).getX() == currX2 - 1 && handler.getSnake1().get(i).getY() == currY2){
+					if(element.getX() == currX2 - 1 && element.getY() == currY2){
 						handler.setEnd(true);
-						handler.setSnakeOneLose(true);
+						handler.setSnakeTwoLose(true);
 					}
 					break;
 				case "e": 
-					if(handler.getSnake1().get(i).getX() == currX2 + 1 && handler.getSnake1().get(i).getY() == currY2){
+					if(element.getX() == currX2 + 1 && element.getY() == currY2){
 						handler.setEnd(true);
-						handler.setSnakeOneLose(true);
+						handler.setSnakeTwoLose(true);
 					}
 					break;
 				default:
@@ -232,32 +205,30 @@ public class CollisionManager {
 				}
 			}
 
-			
-			//head 2 to body 2
-			for (int i = 0; i < handler.getSnake2().size(); i++) {
+			//Head 2 to Snake 1
+			for (SnakeBody element : handler.getSnake1()) {
 				switch(handler.getHead2().getDir()){
 				//if it is north, check to see if there is something above.
 				case "n": 
-					//checks head1 to snake 2
-					if(handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1){
+					if(element.getX() == currX2 && element.getY() == currY2 - 1){
 						handler.setEnd(true);
 						handler.setSnakeTwoLose(true);
 					}
 					break;
 				case "s": 
-					if(handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1){
+					if(element.getX() == currX2 && element.getY() == currY2 + 1){
 						handler.setEnd(true);
 						handler.setSnakeTwoLose(true);
 					}
 					break;
 				case "w": 
-					if(handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2){
+					if(element.getX() == currX2 - 1 && element.getY() == currY2){
 						handler.setEnd(true);
 						handler.setSnakeTwoLose(true);
 					}
 					break;
 				case "e": 
-					if(handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2){
+					if(element.getX() == currX2 + 1 && element.getY() == currY2){
 						handler.setEnd(true);
 						handler.setSnakeTwoLose(true);
 					}
@@ -267,7 +238,7 @@ public class CollisionManager {
 				}
 			}
 			
-
+			
 			// checks for head to head
 			if (handler.getHead1().getX() == handler.getHead2().getX()
 					&& handler.getHead1().getY() == handler.getHead2().getY())
