@@ -104,46 +104,46 @@ public class CollisionManager {
 		currX1 = handler.getHead1().getX();
 		currY1 = handler.getHead1().getY();
 		
-		for(SnakeBody element : handler.getSnake1()){
-			if(currX1 == element.getX() && currY2 == element.getY()){
-				out = true;
-				handler.setSnakeOneLose(true);
-			}
-		}
-
-//		
-//		//Head 1 to Snake 1
-//		for (SnakeBody element : handler.getSnake1()) {
-//			switch(handler.getHead1().getDir()){
-//			//if it is north, check to see if there is something above.
-//			case "n": 
-//				if(element.getX() == currX1 && element.getY() == currY1 - 1){
-//					out = true;
-//					handler.setSnakeOneLose(true);
-//				}
-//				break;
-//			case "s": 
-//				if(element.getX() == currX1 && element.getY() == currY1 + 1){
-//					out = true;
-//					handler.setSnakeOneLose(true);
-//				}
-//				break;
-//			case "w": 
-//				if(element.getX() == currX1 - 1 && element.getY() == currY1){
-//					out = true;
-//					handler.setSnakeOneLose(true);
-//				}
-//				break;
-//			case "e": 
-//				if(element.getX() == currX1 + 1 && element.getY() == currY1){
-//					out = true;
-//					handler.setSnakeOneLose(true);
-//				}
-//				break;
-//			default:
-//				break;
+//		for(SnakeBody element : handler.getSnake1()){
+//			if(currX1 == element.getX() && currY2 == element.getY()){
+//				out = true;
+//				handler.setSnakeOneLose(true);
 //			}
 //		}
+
+		
+		//Head 1 to Snake 1
+		for (SnakeBody element : handler.getSnake1()) {
+			switch(handler.getHead1().getDir()){
+			//if it is north, check to see if there is something above.
+			case "n": 
+				if(element.getX() == currX1 && element.getY() == currY1 - 1){
+					out = true;
+					handler.setSnakeOneLose(true);
+				}
+				break;
+			case "s": 
+				if(element.getX() == currX1 && element.getY() == currY1 + 1){
+					out = true;
+					handler.setSnakeOneLose(true);
+				}
+				break;
+			case "w": 
+				if(element.getX() == currX1 - 1 && element.getY() == currY1){
+					out = true;
+					handler.setSnakeOneLose(true);
+				}
+				break;
+			case "e": 
+				if(element.getX() == currX1 + 1 && element.getY() == currY1){
+					out = true;
+					handler.setSnakeOneLose(true);
+				}
+				break;
+			default:
+				break;
+			}
+		}
 		
 		
 
@@ -152,123 +152,123 @@ public class CollisionManager {
 			//Snake 2 coordinates
 			currX2 = handler.getHead2().getX();
 			currY2 = handler.getHead2().getY();	
-//
-//			//Head 1 to Snake 2 and Head 2 to Snake 2
-//			for (SnakeBody element : handler.getSnake2()) {
-//				//head 1
-//				switch(handler.getHead1().getDir()){
-//				//if it is north, check to see if there is something above.
-//				case "n": 
-//					if(element.getX() == currX1 && element.getY() == currY1 - 1){
-//						out = true;
-//						handler.setSnakeOneLose(true);
-//					}
-//					break;
-//				case "s": 
-//					if(element.getX() == currX1 && element.getY() == currY1 + 1){
-//						out = true;
-//						handler.setSnakeOneLose(true);
-//					}
-//					break;
-//				case "w": 
-//					if(element.getX() == currX1 - 1 && element.getY() == currY1){
-//						out = true;
-//						handler.setSnakeOneLose(true);
-//					}
-//					break;
-//				case "e": 
-//					if(element.getX() == currX1 + 1 && element.getY() == currY1){
-//						out = true;
-//						handler.setSnakeOneLose(true);
-//					}
-//					break;
-//				default:
-//					break;
-//				}
-//				
-//				//Head 2
-//				switch(handler.getHead2().getDir()){
-//				//if it is north, check to see if there is something above.
-//				case "n": 
-//					if(element.getX() == currX2 && element.getY() == currY2 - 1){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				case "s": 
-//					if(element.getX() == currX2 && element.getY() == currY2 + 1){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				case "w": 
-//					if(element.getX() == currX2 - 1 && element.getY() == currY2){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				case "e": 
-//					if(element.getX() == currX2 + 1 && element.getY() == currY2){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				default:
-//					break;
-//				}
-//			}
-//
-//			//Head 2 to Snake 1
-//			for (SnakeBody element : handler.getSnake1()) {
-//				switch(handler.getHead2().getDir()){
-//				//if it is north, check to see if there is something above.
-//				case "n": 
-//					if(element.getX() == currX2 && element.getY() == currY2 - 1){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				case "s": 
-//					if(element.getX() == currX2 && element.getY() == currY2 + 1){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				case "w": 
-//					if(element.getX() == currX2 - 1 && element.getY() == currY2){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				case "e": 
-//					if(element.getX() == currX2 + 1 && element.getY() == currY2){
-//						out = true;
-//						handler.setSnakeTwoLose(true);
-//					}
-//					break;
-//				default:
-//					break;
-//				}
-//			}
-			
-			
-			for(SnakeBody element : handler.getSnake1()){
-				if(currX2 == element.getX() && currY2 == element.getY()){
-					out = true;
-					handler.setSnakeTwoLose(true);
+
+			//Head 1 to Snake 2 and Head 2 to Snake 2
+			for (SnakeBody element : handler.getSnake2()) {
+				//head 1
+				switch(handler.getHead1().getDir()){
+				//if it is north, check to see if there is something above.
+				case "n": 
+					if(element.getX() == currX1 && element.getY() == currY1 - 1){
+						out = true;
+						handler.setSnakeOneLose(true);
+					}
+					break;
+				case "s": 
+					if(element.getX() == currX1 && element.getY() == currY1 + 1){
+						out = true;
+						handler.setSnakeOneLose(true);
+					}
+					break;
+				case "w": 
+					if(element.getX() == currX1 - 1 && element.getY() == currY1){
+						out = true;
+						handler.setSnakeOneLose(true);
+					}
+					break;
+				case "e": 
+					if(element.getX() == currX1 + 1 && element.getY() == currY1){
+						out = true;
+						handler.setSnakeOneLose(true);
+					}
+					break;
+				default:
+					break;
+				}
+				
+				//Head 2
+				switch(handler.getHead2().getDir()){
+				//if it is north, check to see if there is something above.
+				case "n": 
+					if(element.getX() == currX2 && element.getY() == currY2 - 1){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				case "s": 
+					if(element.getX() == currX2 && element.getY() == currY2 + 1){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				case "w": 
+					if(element.getX() == currX2 - 1 && element.getY() == currY2){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				case "e": 
+					if(element.getX() == currX2 + 1 && element.getY() == currY2){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				default:
+					break;
+				}
+			}
+
+			//Head 2 to Snake 1
+			for (SnakeBody element : handler.getSnake1()) {
+				switch(handler.getHead2().getDir()){
+				//if it is north, check to see if there is something above.
+				case "n": 
+					if(element.getX() == currX2 && element.getY() == currY2 - 1){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				case "s": 
+					if(element.getX() == currX2 && element.getY() == currY2 + 1){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				case "w": 
+					if(element.getX() == currX2 - 1 && element.getY() == currY2){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				case "e": 
+					if(element.getX() == currX2 + 1 && element.getY() == currY2){
+						out = true;
+						handler.setSnakeTwoLose(true);
+					}
+					break;
+				default:
+					break;
 				}
 			}
 			
-			for(SnakeBody element : handler.getSnake2()){
-				if(currX2 == element.getX() && currY2 == element.getY()){
-					out = true;
-					handler.setSnakeTwoLose(true);
-				}
-				if(currX1 == element.getX() && currY1 == element.getY()){
-					out = true;
-					handler.setSnakeOneLose(true);
-				}
-			}
+//			
+//			for(SnakeBody element : handler.getSnake1()){
+//				if(currX2 == element.getX() && currY2 == element.getY()){
+//					out = true;
+//					handler.setSnakeTwoLose(true);
+//				}
+//			}
+//			
+//			for(SnakeBody element : handler.getSnake2()){
+//				if(currX2 == element.getX() && currY2 == element.getY()){
+//					out = true;
+//					handler.setSnakeTwoLose(true);
+//				}
+//				if(currX1 == element.getX() && currY1 == element.getY()){
+//					out = true;
+//					handler.setSnakeOneLose(true);
+//				}
+//			}
 			
 			
 			// checks for head to head

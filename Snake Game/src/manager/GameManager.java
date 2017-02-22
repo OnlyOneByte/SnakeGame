@@ -200,8 +200,6 @@ public class GameManager {
 				break;
 			}
 			
-			handler.getGui().repaintGame();
-			
 			
 			moveSnake();
 			
@@ -226,7 +224,7 @@ public class GameManager {
 			
 			checkPause();
 			
-			handler.getGui().repaint();
+			
 			handler.getScorePanel().redoScore();
 			handler.getGui().repaintGame();
 
