@@ -147,8 +147,9 @@ public class KeyboardManager implements KeyListener {
 		case KeyEvent.VK_N:
 			handler.setReset(true);
 			break;
-		default:break;
+		
 		}
+		
 
 	}
 
