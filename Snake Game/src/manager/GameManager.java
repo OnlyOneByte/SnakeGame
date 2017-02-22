@@ -245,6 +245,23 @@ public class GameManager {
 	}
 
 	private void gameEndWait(){
+		
+		System.out.println("HEAD 1");
+		System.out.println(handler.getHead1().getDir() + " "+ handler.getHead1().getX() +" "+ handler.getHead1().getY() );
+		
+		System.out.println("HEAD 2");
+		System.out.println(handler.getHead2().getDir() + " "+ handler.getHead2().getX() +" "+ handler.getHead2().getY() );
+		
+		System.out.println("SNAKE 1");
+		for(SnakeBody element : handler.getSnake1()){
+			System.out.println(element.getX() + " " + element.getY());
+		}
+		
+		System.out.println("SNAKE 2");
+		for(SnakeBody element : handler.getSnake2()){
+			System.out.println(element.getX() + " " + element.getY());
+		}
+		
 		while(handler.isWait()){
 			checkGameMode();
 			checkReset();

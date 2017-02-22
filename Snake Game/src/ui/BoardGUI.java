@@ -40,6 +40,7 @@ public class BoardGUI extends JPanel {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+		g2.fillRect(0, 0, 700, 700);;
 		
 		// draws the powerups if it is not infinite grow/tron mode
 		g2.setColor(Color.RED);
