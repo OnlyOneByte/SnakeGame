@@ -46,17 +46,6 @@ public class Handler {
 	private static int edgeBorder = 25;
 	private static int boardWidth = 700;
 	private static int boardHeight = 700;
-	/*
-	 * 
-	 * RESERVED FOR GUI STUFF
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
-	
 	
 	private boolean snakeOneLose = false;
 	private boolean snakeTwoLose = false;

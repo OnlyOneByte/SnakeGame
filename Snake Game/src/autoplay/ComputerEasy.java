@@ -10,6 +10,22 @@ public class ComputerEasy extends ComputerPlayer {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * This is a nice move method. 
+	 * -	If front is blocked. This is most immediate because if it moves forward it will definitely lose.
+				Then it checks to see if either side is blocked as well.
+					If either side is blocked, it will choose the side that is not blocked
+					If both sides are blocked, it moves forward to a forced loss
+					If both sides are open, then it chooses a side on chance. There should be a 50% chance for either side.
+			If front is not blocked.
+				Checks for blocked sides.
+					If only one side is blocked
+						The Snake will weigh going forward as a higher chance than going to the unblocked side. (75% to 25%)
+					If Both sides are blocked
+						The snake will move forward
+					If neither side is blocked
+						The snake will weigh each side equally, but will weigh going forward higher than the two sides. (80% forward, 10% for each side.)
+	 */
 	@Override
 	public void move() {
 		// a few basic tenents.

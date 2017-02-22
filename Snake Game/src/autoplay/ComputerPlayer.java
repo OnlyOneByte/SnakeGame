@@ -4,16 +4,32 @@ import manager.Handler;
 
 public abstract class ComputerPlayer {
 	
+	/**
+	 * The food X and foodY
+	 */
 	protected int foodX, foodY;
+	/**
+	 * The X and Y of the head of the snake.
+	 */
 	protected int x, y;
+	
+	/**
+	 * The relative directions of the snake.
+	 */
 	protected String left, right, forward;
 	
+	/**
+	 * The handler.
+	 */
 	protected Handler handler;
 	
 	public ComputerPlayer(Handler handler){
 		this.handler = handler;
 	}
 	
+	/**
+	 * This is the method that will move the snake.
+	 */
 	public abstract void move();
 	
 	
@@ -107,7 +123,10 @@ public abstract class ComputerPlayer {
 
 		return out;
 	}
-
+	/**
+	 * This sees if the left of the snake is blocked
+	 * @return 	true, if either the wall or a part of the other snake is blocking
+	 */
 	protected boolean leftBlocked() {
 		boolean out = false;
 		// the head Y
@@ -195,7 +214,10 @@ public abstract class ComputerPlayer {
 
 		return out;
 	}
-
+	/**
+	 * This sees if the front of the snake is blocked
+	 * @return 	true, if either the wall or a part of the other snake is blocking
+	 */
 	protected boolean frontBlocked() {
 		boolean out = false;
 		// the head Y

@@ -9,9 +9,21 @@ import ui.GUI;
 import ui.ScorePanel;
 
 public class GameManager {
+	/**
+	 * This is the handler
+	 */
 	Handler handler;
+	
+	/**
+	 * This is the computer player
+	 */
 	ComputerPlayer computer;
 	
+	/**
+	 * This is the main constructor
+	 * It instantiates most of all the other necessary things using the Handler that is passed in
+	 * @param handler	This handler is also passed to all the classes that this handler has
+	 */
 	public GameManager(Handler handler){
 		this.handler = handler;
 		this.handler.setScorePanel(new ScorePanel(this.handler));
@@ -33,6 +45,9 @@ public class GameManager {
 		gameRun();
 	}
 	
+	/**
+	 * This initializes the game. it creates the snakes based on the gamemode.
+	 */
 	public void initialize(){
 		
 		checkGameMode();
@@ -60,6 +75,12 @@ public class GameManager {
 		handler.getScorePanel().redoScore();
 	}
 	
+	/**
+	 * This is the randomspawner. Based on an input, if it is one player it only randomly spawns the first snake
+	 * If it is two player it randomly spawns the second snake somewhere
+	 * All snakes start off at a length of 4 (1 head + 3 body)
+	 * @param one	is One Player
+	 */
 	private void randomSpawn(boolean one) {
 		int offset = 5;
 		int dir = (int) (Math.random() * 4); // 0 NORTH 1 SOUTH 2 EAST 3 WEST
@@ -161,7 +182,11 @@ public class GameManager {
 		
 	}
 
-	//the actual continual process of the game
+	/**
+	 * This actually runs the game. It first waits for the game to start, while checking input.
+	 * 
+	 * When it starts, it cycles through the Check-Collide, Move, Check-Input, Draw, in that order.
+	 */
 	public void gameRun(){
 		//spawns the food
 //		handler.getFood().spawnFood();
@@ -231,6 +256,9 @@ public class GameManager {
 		
 	}
 	
+	/**
+	 * This checks for pause, and when it does it toggles off the pause.
+	 */
 	private void checkPause(){
 		while(handler.isPause()){
 			checkGameMode();
@@ -244,8 +272,13 @@ public class GameManager {
 		}
 	}
 
+	/**
+	 * This is the wait method at the end of the Game. It also prints some diagnostic information, that will not
+	 * be visible except in the console.
+	 */
 	private void gameEndWait(){
 		
+		//end game bug finder
 		System.out.println("HEAD 1");
 		System.out.println(handler.getHead1().getDir() + " "+ handler.getHead1().getX() +" "+ handler.getHead1().getY() );
 		
@@ -272,7 +305,10 @@ public class GameManager {
 			}
 		}
 	}
-
+	
+	/**
+	 * This checks for the reset, if yes, it executs the resetGame Method.
+	 */
 	private void checkReset() {
 		if(handler.isReset()){
 			resetGame();
@@ -280,6 +316,9 @@ public class GameManager {
 		
 	}
 
+	/**
+	 * This moves the snakes based on inputs from the player and the computer.
+	 */
 	private void moveSnake() {
 		//removes the end piece
 		//only removes if gamemode is not the infinite grow
@@ -345,7 +384,12 @@ public class GameManager {
 		}		
 	}
 
-
+	
+	/**
+	 * This checks for the growth of the snake. Because of how the snake moves, where it adds
+	 * a new snake body where the head was, and removes the body at the end, growing it just
+	 * sets the deletion of the last body to false.
+	 */
 	private void checkGrow() {
 		//ends the mothod if it is infiite grow
 		if(handler.getGameMode() == 1){
@@ -366,6 +410,10 @@ public class GameManager {
 			else
 				handler.setGrowing2(false);
 	}
+	
+	/**
+	 * This resets the game, and resets all the key values in the handler.
+	 */
 
 	public void resetGame(){
 		//resets all major values first
@@ -406,7 +454,9 @@ public class GameManager {
 		
 	}
 
-
+	/**
+	 * This checks for gamemode, and switches between gamemodes.
+	 */
 	private void checkGameMode(){
 		if(handler.getGameMode() != handler.getGameModeHold()){
 			handler.setGameMode(handler.getGameModeHold());
