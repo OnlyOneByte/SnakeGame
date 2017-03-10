@@ -234,6 +234,7 @@ public class ComputerMedium extends ComputerPlayer {
 
 		} // end if Front is blocked
 
+		
 	}// end move method
 
 	/**

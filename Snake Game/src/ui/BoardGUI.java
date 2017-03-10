@@ -39,6 +39,8 @@ public class BoardGUI extends JPanel {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		
+		g2.setBackground(Color.WHITE);
 
 		g2.fillRect(0, 0, 700, 700);;
 		
@@ -46,8 +48,7 @@ public class BoardGUI extends JPanel {
 		g2.setColor(Color.RED);
 		if (handler.getGameMode() != 1)
 			for (PowerUp element : handler.getPowerUps())
-				g2.fillOval(element.getX() * handler.getBoxSize(), element.getY() * handler.getBoxSize(),
-						handler.getBoxSize(), handler.getBoxSize());
+				g2.fillOval(element.getX() * handler.getBoxSize(), element.getY() * handler.getBoxSize(), handler.getBoxSize(), handler.getBoxSize());
 
 		
 		// snake body one
@@ -65,14 +66,16 @@ public class BoardGUI extends JPanel {
 		
 		// draws the second snake
 		if (handler.getGameMode() != 2) {
+			
+			
+			
 			// snake body one
 			g2.setColor(Color.CYAN);
 			for (int x = 0; x < handler.getSnake2().size(); x++)
 				g2.fillOval(handler.getSnake2().get(x).getX() * handler.getBoxSize(),
 						handler.getSnake2().get(x).getY() * handler.getBoxSize(), handler.getBoxSize(),
 						handler.getBoxSize());
-			
-			
+		
 			
 			// snake head two first
 			g2.setColor(Color.BLUE);

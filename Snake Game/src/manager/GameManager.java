@@ -218,25 +218,23 @@ public class GameManager {
 		}
 		
 		//main game function
-		while(!handler.isEnd()){									
+		while(!handler.isEnd()){	
+			
 			//checks for powerups taken
 			handler.getCollisionCheck().powerUpCheck();
 			
 			
-			handler.getCollisionCheck().checkWall();
-			handler.getCollisionCheck().checkSnakeCollide();
-			
-			if(handler.isEnd()){
+			if(	handler.getCollisionCheck().checkWall() || handler.getCollisionCheck().checkSnakeCollide()){
+				handler.setEnd(true);
 				System.out.println("1:" + handler.isSnakeOneLose() + "\t2:" + handler.isSnakeTwoLose());
 				break;
 			}
 			
-			handler.getGui().repaintGame();
 			
-			moveSnake();
 			if(handler.isAiON()){
 				computer.move();
 			}
+			moveSnake();
 
 			//makes sure it isn't infinite grow
 			checkGrow();	
@@ -245,7 +243,7 @@ public class GameManager {
 			
 			checkPause();
 			
-			handler.getGui().repaint();
+			
 			handler.getScorePanel().redoScore();
 			handler.getGui().repaintGame();
 
