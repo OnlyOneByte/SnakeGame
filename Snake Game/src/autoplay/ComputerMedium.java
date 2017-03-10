@@ -3,12 +3,20 @@ package autoplay;
 import manager.Handler;
 
 public class ComputerMedium extends ComputerPlayer {
-
+	
+	/**
+	 * Thie constructor
+	 * @param handler	The handler that is passed in
+	 */
 	public ComputerMedium(Handler handler) {
 		super(handler);
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * This is a nice move.
+	 * It basically moves towards the food whenever possible.
+	 */
 	@Override
 	public void move() {
 		// a few basic tenents.

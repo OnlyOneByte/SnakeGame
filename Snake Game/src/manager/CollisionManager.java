@@ -5,11 +5,24 @@ import snake.SnakeBody;
 
 public class CollisionManager {
 
+	/**
+	 * The handler that handles everything the handler should handle
+	 */
 	private Handler handler;
 	
+	/**
+	 * The coordinates of the first snake
+	 */
 	int currX1 = 0, currY1 = 0;
+	/**
+	 * The coordinates of the second snake
+	 */
 	int currX2 = 0, currY2 = 0;
 
+	/**
+	 * This is the main constructor
+	 * @param handler The passed in handler
+	 */
 	public CollisionManager(Handler handler) {
 		this.handler = handler;
 	}
@@ -19,6 +32,9 @@ public class CollisionManager {
 	 * is if its literally on top of another piece. It would be nice to have
 	 * better collision checker that can see if the snake is going to run into
 	 * another piece and stop the game before.
+	 */
+	/**
+	 * This checks to see if either snake has hit a wall.
 	 */
 	public void checkWall() {
 		// oh god here we go.
@@ -92,15 +108,20 @@ public class CollisionManager {
 
 	}
 	
+	/**
+	 * This checks to see if the snakes collide with each other.
+	 */
 	public void checkSnakeCollide(){
 		currX1 = handler.getHead1().getX();
 		currY1 = handler.getHead1().getY();
 		
 		//head 1 to body 1
-		for(SnakeBody element : handler.getSnake1()){
-			if(element.getX() == currX1 && element.getY() == currY1){
-				handler.setEnd(true);
-				handler.setSnakeOneLose(true);
+		if(handler.getGameMode() == 2){
+			for(SnakeBody element : handler.getSnake1()){
+				if(element.getX() == currX1 && element.getY() == currY1){
+					handler.setEnd(true);
+					handler.setSnakeOneLose(true);
+				}
 			}
 		}
 		
@@ -120,10 +141,6 @@ public class CollisionManager {
 			
 			//head 2 to body 2
 			for(SnakeBody element : handler.getSnake2()){
-				if(element.getX() == currX2 && element.getY() == currY2){
-					handler.setEnd(true);
-					handler.setSnakeTwoLose(true);
-				}
 				
 				//Head 1 to body 2
 				if(element.getX() == currX1 && element.getY() == currY1){
@@ -143,7 +160,7 @@ public class CollisionManager {
 	}
 
 	/**
-	 * checks for collision with other stuff
+	 * checks for collision with other stuff, like powerups. Only food so far tho.
 	 */
 	public void powerUpCheck() {
 		for (PowerUp element : handler.getPowerUps()) {

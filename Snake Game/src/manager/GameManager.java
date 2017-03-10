@@ -40,7 +40,11 @@ public class GameManager {
 		this.handler.setGui(new GUI(this.handler));
 		
 		
-		computer = new ComputerMedium(this.handler);
+		if(handler.isAIHard()){
+			computer = new ComputerMedium(this.handler);
+		} else {
+			computer = new ComputerEasy(this.handler);
+		}
 		
 		gameRun();
 	}
@@ -230,7 +234,9 @@ public class GameManager {
 			handler.getGui().repaintGame();
 			
 			moveSnake();
-			computer.move();
+			if(handler.isAiON()){
+				computer.move();
+			}
 
 			//makes sure it isn't infinite grow
 			checkGrow();	
@@ -431,6 +437,11 @@ public class GameManager {
 		handler.setSnakeOneLose(false);
 		handler.setSnakeTwoLose(false);
 		
+		if(handler.isAIHard()){
+			computer = new ComputerMedium(this.handler);
+		} else {
+			computer = new ComputerEasy(this.handler);
+		}
 		
 
 		//now everything should be reset on the logic side except some other things

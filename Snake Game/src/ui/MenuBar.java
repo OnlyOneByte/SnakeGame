@@ -89,6 +89,14 @@ public class MenuBar extends JPanel implements ActionListener {
 		menuItem = new JMenuItem("Growth", new ImageIcon("images/Growth.gif"));
 		menuItem.addActionListener(this);
 		OptionMenu.add(menuItem);
+		
+		menuItem = new JMenuItem("Ai Toggle", new ImageIcon("images/AiToggle.gif"));
+		menuItem.addActionListener(this);
+		OptionMenu.add(menuItem);
+		
+		menuItem = new JMenuItem("Ai Diff. Toggle", new ImageIcon("images/AiDiffToggle.gif"));
+		menuItem.addActionListener(this);
+		OptionMenu.add(menuItem);
 
 		OptionMenu.setPreferredSize(new Dimension(150, 60));
 		OptionMenu.setVisible(true);
@@ -168,7 +176,14 @@ public class MenuBar extends JPanel implements ActionListener {
 		case "Pause/Unpause":
 			handler.setPause(!handler.isPause());;		
 			break;
+		case "Ai Toggle":
+			handler.setAiON(!handler.isAiON());
+			break;
+		case "Ai Diff. Toggle":
+			handler.setAIHard(!handler.isAIHard());
+			break;
 			
+		
 		//gamemode menu
 		case "Two Player (Normal)": 
 			handler.setGameModeHold(0);
@@ -181,6 +196,8 @@ public class MenuBar extends JPanel implements ActionListener {
 		case "One Player":
 			handler.setGameModeHold(2);
 			break;
+
+		
 		default:
 			break;
 		}

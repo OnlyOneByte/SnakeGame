@@ -50,11 +50,6 @@ public class BoardGUI extends JPanel {
 						handler.getBoxSize(), handler.getBoxSize());
 
 		
-		
-		// snake head one first
-		g2.setColor(Color.DARK_GRAY);
-		g2.fillOval(handler.getHead1().getX() * handler.getBoxSize(), handler.getHead1().getY() * handler.getBoxSize(),
-				handler.getBoxSize(), handler.getBoxSize());
 		// snake body one
 		g2.setColor(Color.GRAY);
 		for (int x = 0; x < handler.getSnake1().size(); x++)
@@ -62,18 +57,27 @@ public class BoardGUI extends JPanel {
 					handler.getSnake1().get(x).getY() * handler.getBoxSize(), handler.getBoxSize(),
 					handler.getBoxSize());
 
+		
+		// snake head one first
+		g2.setColor(Color.DARK_GRAY);
+		g2.fillOval(handler.getHead1().getX() * handler.getBoxSize(), handler.getHead1().getY() * handler.getBoxSize(),
+				handler.getBoxSize(), handler.getBoxSize());
+		
 		// draws the second snake
 		if (handler.getGameMode() != 2) {
-			// snake head two first
-			g2.setColor(Color.BLUE);
-			g2.fillOval(handler.getHead2().getX() * handler.getBoxSize(),
-					handler.getHead2().getY() * handler.getBoxSize(), handler.getBoxSize(), handler.getBoxSize());
 			// snake body one
 			g2.setColor(Color.CYAN);
 			for (int x = 0; x < handler.getSnake2().size(); x++)
 				g2.fillOval(handler.getSnake2().get(x).getX() * handler.getBoxSize(),
 						handler.getSnake2().get(x).getY() * handler.getBoxSize(), handler.getBoxSize(),
 						handler.getBoxSize());
+			
+			
+			
+			// snake head two first
+			g2.setColor(Color.BLUE);
+			g2.fillOval(handler.getHead2().getX() * handler.getBoxSize(),
+					handler.getHead2().getY() * handler.getBoxSize(), handler.getBoxSize(), handler.getBoxSize());
 		}
 
 	}

@@ -4,9 +4,16 @@ import manager.GameManager;
 import manager.Handler;
 
 public class SnakeGame {
+	/**
+	 * This is the handler that is passed to everything.
+	 */
 	public static Handler handler = new Handler();
 	
-	public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {	
+	/**
+	 * The main method
+	 * @param args
+	 */
+	public static void main(String[] args)  {	
 
 	    // This is the next comment.
 		

@@ -92,34 +92,34 @@ public abstract class ComputerPlayer {
 			}
 		}
 		// head 2 to body 2
-		for (int i = 0; i < handler.getSnake2().size(); i++) {
-			switch (handler.getHead2().getDir()) {
-			// if it is north, check to see if there is something above.
-			case "n":
-				// checks head1 to snake 2
-				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
-					out = true;
-				}
-				break;
-			case "s":
-				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
-					out = true;
-				}
-				break;
-			case "w":
-				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
-					out = true;
-				}
-				break;
-			case "e":
-				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
-					out = true;
-				}
-				break;
-			default:
-				break;
-			}
-		}
+//		for (int i = 0; i < handler.getSnake2().size(); i++) {
+//			switch (handler.getHead2().getDir()) {
+//			// if it is north, check to see if there is something above.
+//			case "n":
+//				// checks head1 to snake 2
+//				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
+//					out = true;
+//				}
+//				break;
+//			case "s":
+//				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
+//					out = true;
+//				}
+//				break;
+//			case "w":
+//				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
+//					out = true;
+//				}
+//				break;
+//			case "e":
+//				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
+//					out = true;
+//				}
+//				break;
+//			default:
+//				break;
+//			}
+//		}
 
 		return out;
 	}
@@ -183,34 +183,34 @@ public abstract class ComputerPlayer {
 		}
 
 		// head 2 to body 2
-		for (int i = 0; i < handler.getSnake2().size(); i++) {
-			switch (handler.getHead2().getDir()) {
-			// if it is north, check to see if there is something above.
-			case "n":
-				// checks head1 to snake 2
-				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
-					out = true;
-				}
-				break;
-			case "s":
-				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
-					out = true;
-				}
-				break;
-			case "w":
-				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
-					out = true;
-				}
-				break;
-			case "e":
-				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
-					out = true;
-				}
-				break;
-			default:
-				break;
-			}
-		}
+//		for (int i = 0; i < handler.getSnake2().size(); i++) {
+//			switch (handler.getHead2().getDir()) {
+//			// if it is north, check to see if there is something above.
+//			case "n":
+//				// checks head1 to snake 2
+//				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
+//					out = true;
+//				}
+//				break;
+//			case "s":
+//				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
+//					out = true;
+//				}
+//				break;
+//			case "w":
+//				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
+//					out = true;
+//				}
+//				break;
+//			case "e":
+//				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
+//					out = true;
+//				}
+//				break;
+//			default:
+//				break;
+//			}
+//		}
 
 		return out;
 	}
@@ -273,33 +273,33 @@ public abstract class ComputerPlayer {
 			}
 		}
 		// checks for snake2 parts.
-		for (int i = 0; i < handler.getSnake2().size(); i++) {
-			switch (handler.getHead2().getDir()) {
-			// if it is north, check to see if there is something above.
-			case "n":
-				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
-					out = true;
-				}
-				break;
-			case "s":
-				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
-					out = true;
-				}
-				break;
-			case "w":
-				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
-					out = true;
-				}
-				break;
-			case "e":
-				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
-					out = true;
-				}
-				break;
-			default:
-				break;
-			}
-		}
+//		for (int i = 0; i < handler.getSnake2().size(); i++) {
+//			switch (handler.getHead2().getDir()) {
+//			// if it is north, check to see if there is something above.
+//			case "n":
+//				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 - 1) {
+//					out = true;
+//				}
+//				break;
+//			case "s":
+//				if (handler.getSnake2().get(i).getX() == currX2 && handler.getSnake2().get(i).getY() == currY2 + 1) {
+//					out = true;
+//				}
+//				break;
+//			case "w":
+//				if (handler.getSnake2().get(i).getX() == currX2 - 1 && handler.getSnake2().get(i).getY() == currY2) {
+//					out = true;
+//				}
+//				break;
+//			case "e":
+//				if (handler.getSnake2().get(i).getX() == currX2 + 1 && handler.getSnake2().get(i).getY() == currY2) {
+//					out = true;
+//				}
+//				break;
+//			default:
+//				break;
+//			}
+//		}
 
 		return out;
 	}

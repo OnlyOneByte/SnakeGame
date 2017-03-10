@@ -17,10 +17,12 @@ public class ScorePanel extends JPanel{
 	private int fps;
 	
 	private int snake1Length = 0;
+	private int snake2Length = 0;
 	
 	Font scoreLabel = new Font("sans-serif", Font.BOLD, 16);
 	
 	JLabel score1= new JLabel();
+	JLabel score2 = new JLabel();
 	JLabel FPS = new JLabel();
 	
 	//bugs: last score is stuck after reset.
@@ -43,9 +45,6 @@ public class ScorePanel extends JPanel{
 		this.add(Box.createRigidArea(new Dimension(5,8))); //spacer
 		
 		if(onePlayer){
-			score1.setFont(scoreLabel);
-			score1.setSize(200, 25);
-			this.add(score1);
 			panelOnePlayer();
 		} else {
 			panelTwoPlayer();
@@ -54,7 +53,7 @@ public class ScorePanel extends JPanel{
 		
 		//draws the JLabel for the other things
 		drawFPS();
-		this.add(Box.createRigidArea(new Dimension(5,5))); //spacer
+		this.add(Box.createRigidArea(new Dimension(2,2))); //spacer
 		this.add(FPS);
 		this.setVisible(true);
 		
@@ -70,12 +69,38 @@ public class ScorePanel extends JPanel{
 	}
 
 	private void panelTwoPlayer() {
-		//double score counter and a end game screen with winner
+		//double score counter
+		
+		score1.setFont(scoreLabel);
+		score1.setSize(200, 25);
+		this.add(score1);
+		
+		//score counter
+		snake1Length = handler.getSnake1().size() + 1;
+		score1.setText("Score: " + snake1Length);
+		score1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		
+		
+		score2.setFont(scoreLabel);
+		score2.setSize(200, 25);
+		this.add(score2);
+		
+		
+		//score counter 2
+		snake2Length = handler.getSnake2().size() + 1;
+		score2.setText("Score: " + snake2Length);
+		score2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		
 	}
 
 	private void panelOnePlayer() {
+		
+		score1.setFont(scoreLabel);
+		score1.setSize(200, 25);
+		this.add(score1);
+
 		//score counter
 		snake1Length = handler.getSnake1().size() + 1;
 		score1.setText("Score: " + snake1Length);

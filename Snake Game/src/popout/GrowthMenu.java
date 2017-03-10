@@ -9,24 +9,63 @@ import ui.MenuBar;
 
 @SuppressWarnings("serial")
 public class GrowthMenu extends JFrame {
+	/**
+	 * This is the handler that is passed in.
+	 */
 	@SuppressWarnings("unused")
 	private Handler handler;
+	/**
+	 * This is the minimum FPS allowed
+	 */
 	public static final int FPS_MIN = 0;
+	/**
+	 * This is the maximum FPS allowed
+	 */
 	public static final int FPS_MAX = 30;
+	/**
+	 * This is the initial FPS value
+	 */
 	public static int FPS_INIT;
+	/**
+	 * This is the first panel
+	 */
 	private JPanel panel = new JPanel();
+	/**
+	 * This is the panel that holds the directions.
+	 */
 	private JPanel directionPanel = new JPanel();
 	
+	/**
+	 * This is the min value input
+	 */
 	int valueMin;
+	/**
+	 * This is the max value input
+	 */
 	int valueMax;
+	/**
+	 * This is a temp changer value for passing the input
+	 */
 	int valueHold1;
+	/**
+	 * This is a temp changer value for passing the input/
+	 */
 	int valueHold2;
 	
-	JSpinner min, max;
-	SpinnerNumberModel enterMin, enterMax;
-	JLabel labelMin, labelMax, directions;
+	/**
+	 * This is teh spinner for max.
+	 */
+	JSpinner max = null;
 	
+	/**
+	 * This is teh constructor, but also builds the panel itself.
+	 * @param handler	the handler that is passed in
+	 */
 	public GrowthMenu(Handler handler) {
+		
+		JSpinner min;
+		SpinnerNumberModel enterMin, enterMax;
+		JLabel labelMin, labelMax, directions;
 		
 		this.handler = handler;
 		

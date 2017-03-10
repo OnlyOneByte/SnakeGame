@@ -9,6 +9,12 @@ import ui.ScorePanel;
 import powerup.*;
 
 public class Handler {
+	
+	/**
+	 * This basically has everything ever needed. Yeah. Even I can barely read through it.
+	 */
+	
+	
 	// Snake # 1
 	private static SnakeHead head1;
 	private static ArrayList<SnakeBody> snake1 = new ArrayList<SnakeBody>();
@@ -80,6 +86,10 @@ public class Handler {
 	private CollisionManager collisionCheck;
 	
 	private GUI gui; //the board
+	
+	private boolean aiON = false;
+	
+	private boolean AIHard = true;
 
 	public Handler() {
 
@@ -366,6 +376,22 @@ public class Handler {
 
 	public void setSnakeTwoLose(boolean snakeTwoLose) {
 		this.snakeTwoLose = snakeTwoLose;
+	}
+
+	public boolean isAiON() {
+		return aiON;
+	}
+
+	public void setAiON(boolean aiON) {
+		this.aiON = aiON;
+	}
+
+	public boolean isAIHard() {
+		return AIHard;
+	}
+
+	public void setAIHard(boolean aIHard) {
+		AIHard = aIHard;
 	}
 
 }

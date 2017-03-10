@@ -34,6 +34,8 @@ public class GUI extends JFrame{
 		//begin stuff
 		this.setLayout(null);
 		
+		this.setTitle("Autonomous Snake Simulator");
+		
 		this.addKeyListener(keys);
 		
 		this.getContentPane().setBackground(Color.DARK_GRAY);

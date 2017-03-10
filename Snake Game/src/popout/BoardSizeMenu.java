@@ -12,6 +12,10 @@ public class BoardSizeMenu extends JPanel{
 
 	
 	//work in progress. Very low priority right now.
+	/**
+	 * Unlikely to be finished. Just given up. Left as legacy just in case the client specifically
+	 * requests this feature in the future.
+	 */
 	public BoardSizeMenu(){
 		
 	}

@@ -4,11 +4,21 @@ import java.awt.event.KeyListener;
 
 
 public class KeyboardManager implements KeyListener {
-
+	
+	/**
+	 * The keycode value
+	 */
 	private int keyCode;
 	
+	/**
+	 * The handler that is passed in
+	 */
 	private Handler handler;
 
+	/**
+	 * This is the constructor
+	 * @param handler	handler that is passed in
+	 */
 	public KeyboardManager(Handler handler) {
 		this.handler = handler;
 	}
@@ -16,7 +26,7 @@ public class KeyboardManager implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		keyCode = e.getKeyCode();
+
 
 	}
 
@@ -154,9 +164,13 @@ public class KeyboardManager implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-
+		
 	}
-
+	
+	/**
+	 * This returns the keycode value
+	 * @return	int keycode.
+	 */
 	public int keyCode() {
 		return keyCode;
 	}
