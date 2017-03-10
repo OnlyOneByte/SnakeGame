@@ -230,11 +230,13 @@ public class GameManager {
 				break;
 			}
 			
+			handler.getGui().repaintGame();
+			
+			moveSnake();
 			
 			if(handler.isAiON()){
 				computer.move();
 			}
-			moveSnake();
 
 			//makes sure it isn't infinite grow
 			checkGrow();	
@@ -244,6 +246,7 @@ public class GameManager {
 			checkPause();
 			
 			
+			handler.getGui().repaint();
 			handler.getScorePanel().redoScore();
 			handler.getGui().repaintGame();
 

@@ -162,7 +162,7 @@ public class CollisionManager {
 			
 			for(SnakeBody element : handler.getSnake1()){
 				if(element.getX() == currX1 && element.getY() == currY1){
-					handler.setEnd(true);
+					out = true;
 				}
 			}
 		}
@@ -179,7 +179,7 @@ public class CollisionManager {
 			//head 2 to body 1
 			for(SnakeBody element : handler.getSnake1()){
 				if(element.getX() == currX2 && element.getY() == currY2){
-					handler.setEnd(true);
+					out = true;
 					handler.setSnakeTwoLose(true);
 				}
 			}
@@ -187,7 +187,7 @@ public class CollisionManager {
 			//head1 to body 2
 			for(SnakeBody element : handler.getSnake2()){
 				if(element.getX() == currX1 && element.getY() == currY1){
-					handler.setEnd(true);
+					out = true;
 					handler.setSnakeOneLose(true);
 				}
 			}
